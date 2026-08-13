@@ -18,6 +18,7 @@ import {
   MapPin,
   CalendarDays,
   Phone,
+  PhoneCall,
 } from "lucide-react";
 import { navItems, contactInfo } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -39,7 +40,7 @@ export function SiteHeader() {
       {/* Top bar */}
       <div className="bg-ruhe-navy-deep text-white/75 text-[0.78rem] hidden md:block">
         <div className="mx-auto max-w-[1180px] px-6 flex items-center justify-between py-2">
-          <div className="flex items-center gap-6 flex-wrap">
+          <div className="flex items-center gap-5 flex-wrap">
             <a
               href={`mailto:${contactInfo.email}`}
               className="inline-flex items-center gap-2 hover:text-ruhe-gold-light transition-colors"
@@ -51,10 +52,20 @@ export function SiteHeader() {
               <MapPin className="h-3.5 w-3.5 text-ruhe-gold" />
               {contactInfo.address}
             </span>
-            <span className="inline-flex items-center gap-2">
+            <a
+              href={`tel:${contactInfo.mobile.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-2 hover:text-ruhe-gold-light transition-colors"
+            >
               <Phone className="h-3.5 w-3.5 text-ruhe-gold" />
-              {contactInfo.phone}
-            </span>
+              Mobile: {contactInfo.mobile}
+            </a>
+            <a
+              href={`tel:${contactInfo.telephone.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-2 hover:text-ruhe-gold-light transition-colors"
+            >
+              <PhoneCall className="h-3.5 w-3.5 text-ruhe-gold" />
+              Tel: {contactInfo.telephone}
+            </a>
           </div>
           <Button
             asChild

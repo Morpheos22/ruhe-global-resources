@@ -211,8 +211,7 @@ export const blogPosts: BlogPost[] = [
     title: "Top 5 cheapest universities in the UK for African students",
     excerpt:
       "Tuition, living costs and scholarship options compared — a practical shortlist for Nigerian applicants who want a UK degree without breaking the bank.",
-    image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    image: "/blog/uk-universities.png",
     href: "#blog",
   },
   {
@@ -386,8 +385,11 @@ export const careers: Career[] = [
 ];
 
 export const contactInfo = {
-  email: "admissions@ruheglobalresources.com",
-  phone: "+234 (0) 803 000 0000",
+  email: "georgianeo@ruheglobalresources.com",
+  // Primary mobile (WhatsApp-friendly)
+  mobile: "+44 7448 387659",
+  // Office landline
+  telephone: "+44 7448 967703",
   address: "Abuja, Nigeria",
   bookingUrl: "#contact",
 };

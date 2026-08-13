@@ -31,12 +31,16 @@ export function About() {
 
             {/* CEO card */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-md shadow-xl p-5 flex items-center gap-4 max-w-[280px]">
-              <div className="h-14 w-14 rounded-full bg-ruhe-navy flex items-center justify-center text-ruhe-gold font-display font-bold text-lg">
-                JO
-              </div>
+              <Image
+                src="/team/mr-joseph.jpg"
+                alt="Mr Joseph, Founder & CEO of RUHE Global Resources"
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-ruhe-gold/40"
+              />
               <div>
                 <div className="font-display font-bold text-ruhe-navy text-[0.95rem]">
-                  Mr Joseph O.
+                  Mr Joseph
                 </div>
                 <div className="text-[0.78rem] text-ruhe-slate">
                   Founder &amp; CEO, RUHE Global Resources

@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Mail,
   Phone,
+  PhoneCall,
   MapPin,
   Send,
   CheckCircle2,
@@ -70,7 +71,7 @@ export function ContactCta() {
       toast({
         title: "Something went wrong",
         description:
-          "Please email us directly at admissions@ruheglobalresources.com.",
+          "Please email us directly at georgianeo@ruheglobalresources.com.",
         variant: "destructive",
       });
     } finally {
@@ -117,9 +118,15 @@ export function ContactCta() {
               />
               <ContactRow
                 icon={<Phone className="h-4 w-4" />}
-                label="Phone"
-                value={contactInfo.phone}
-                href={`tel:${contactInfo.phone.replace(/\s|\(|\)/g, "")}`}
+                label="Mobile"
+                value={contactInfo.mobile}
+                href={`tel:${contactInfo.mobile.replace(/\s/g, "")}`}
+              />
+              <ContactRow
+                icon={<PhoneCall className="h-4 w-4" />}
+                label="Telephone"
+                value={contactInfo.telephone}
+                href={`tel:${contactInfo.telephone.replace(/\s/g, "")}`}
               />
               <ContactRow
                 icon={<MapPin className="h-4 w-4" />}

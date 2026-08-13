@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, PhoneCall, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { navItems, contactInfo } from "@/lib/site-data";
 
 const footerColumns = [
@@ -118,11 +118,30 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href={`tel:${contactInfo.phone.replace(/\s|\(|\)/g, "")}`}
+                  href={`tel:${contactInfo.mobile.replace(/\s/g, "")}`}
                   className="flex items-start gap-2 text-[0.88rem] hover:text-ruhe-gold-light transition-colors"
                 >
                   <Phone className="h-4 w-4 mt-0.5 text-ruhe-gold" />
-                  {contactInfo.phone}
+                  <span>
+                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] text-white/40">
+                      Mobile
+                    </span>
+                    {contactInfo.mobile}
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${contactInfo.telephone.replace(/\s/g, "")}`}
+                  className="flex items-start gap-2 text-[0.88rem] hover:text-ruhe-gold-light transition-colors"
+                >
+                  <PhoneCall className="h-4 w-4 mt-0.5 text-ruhe-gold" />
+                  <span>
+                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] text-white/40">
+                      Telephone
+                    </span>
+                    {contactInfo.telephone}
+                  </span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-[0.88rem]">
