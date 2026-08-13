@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // Allowed referers for image requests. Empty/absent referer = direct hit
-// (e.g. opening the URL in a browser tab), which we block in production.
+// (e.g. opening the URL in a browser tab), which we block.
 const ALLOWED_REFERERS = [
   "https://ruhe-global-resources.vercel.app",
   "https://ruhegr.com",
@@ -10,7 +10,10 @@ const ALLOWED_REFERERS = [
   "http://localhost:3000",
 ];
 
-export function middleware(req: NextRequest) {
+// In Next.js 16 the `middleware.ts` convention is deprecated in favour of
+// `proxy.ts` with a default export. Vercel silently skips `middleware.ts`
+// in production, so we use the new convention here.
+export default function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Hotlink protection on the /_next/image optimizer endpoint.
@@ -20,8 +23,6 @@ export function middleware(req: NextRequest) {
   //
   // Direct file access to /logo/... /team/... /blog/... is handled by
   // the headers() in next.config.ts (Cache-Control: private + noindex).
-  // We do NOT block those paths here because doing so breaks the
-  // image optimizer's internal file reads (returns "received null").
   if (pathname.startsWith("/_next/image")) {
     const referer = req.headers.get("referer") || "";
     const isAllowedReferer = ALLOWED_REFERERS.some(
