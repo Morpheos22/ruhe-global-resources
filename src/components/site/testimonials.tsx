@@ -56,7 +56,7 @@ export function Testimonials() {
             className="relative aspect-video rounded-md overflow-hidden shadow-[0_18px_40px_rgba(11,31,58,0.18)] group"
           >
             <iframe
-              src="https://www.youtube.com/embed/VYl_s__YzmY"
+              src="https://www.youtube.com/embed/7zf9WZCoN9k"
               title="RUHE Global Resources client testimonial"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

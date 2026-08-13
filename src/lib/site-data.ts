@@ -64,7 +64,7 @@ export const navItems: NavGroup[] = [
   ] },
   { label: "Destinations", href: "#partnership" },
   { label: "Blog", href: "#blog" },
-  { label: "Careers", href: "#careers" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -220,8 +220,7 @@ export const blogPosts: BlogPost[] = [
     title: "[Update] Top 8 easiest countries for Nigerians to study in",
     excerpt:
       "Visa approval rates, post-study work options and cost of living — the eight destinations we currently recommend most to Nigerian applicants.",
-    image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+    image: "/blog/destinations.png",
     href: "https://ruhegr.com/update-top-8-easiest-countries-for-nigerians-to-study/",
   },
   {
@@ -230,8 +229,7 @@ export const blogPosts: BlogPost[] = [
     title: "What to know before your student visa interview",
     excerpt:
       "The five questions visa officers love to ask, how to frame your study plan, and the documents that make the difference between approval and refusal.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
+    image: "/blog/visa-interview.png",
     href: "https://ruhegr.com/blog/",
   },
 ];

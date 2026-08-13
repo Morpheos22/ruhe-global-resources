@@ -20,10 +20,10 @@ export function About() {
           >
             <div className="relative rounded-md overflow-hidden shadow-[0_18px_50px_rgba(11,31,58,0.18)] bg-gradient-to-br from-ruhe-navy to-ruhe-navy-deep">
               <Image
-                src="/team/mr-joseph.jpg"
+                src="/team/mr-joseph-hd.png"
                 alt="Mr Joseph, Founder & CEO of RUHE Global Resources"
-                width={1200}
-                height={1350}
+                width={864}
+                height={1152}
                 className="w-full h-[560px] object-cover object-top"
                 priority
               />

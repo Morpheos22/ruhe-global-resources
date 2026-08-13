@@ -4,7 +4,34 @@ import { motion } from "framer-motion";
 import { Briefcase, MapPin, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { careers } from "@/lib/site-data";
+import { careers, contactInfo } from "@/lib/site-data";
+
+// Build a mailto link addressed to the HR mailbox with a prefilled application
+// subject + body. The user's email client takes over from there.
+function buildApplyMailto(roleTitle: string): string {
+  const subject = `Job application — ${roleTitle}`;
+  const body = [
+    `Hello RUHE Global Resources HR team,`,
+    ``,
+    `I would like to apply for the following role:`,
+    ``,
+    `Position: ${roleTitle}`,
+    ``,
+    `Please find my CV attached.`,
+    ``,
+    `Best regards,`,
+    `(Your name)`,
+  ].join("\n");
+  return `mailto:${contactInfo.email}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+}
+
+const cvMailto = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
+  "Spontaneous application — CV",
+)}&body=${encodeURIComponent(
+  "Hello RUHE HR team,\n\nPlease find my CV attached for consideration for future openings.\n\nBest regards,\n(Your name)",
+)}`;
 
 export function Careers() {
   return (
@@ -31,7 +58,7 @@ export function Careers() {
               asChild
               className="bg-ruhe-gold text-ruhe-navy-deep hover:bg-ruhe-gold-light rounded-sm font-semibold"
             >
-              <a href="#contact">Send your CV</a>
+              <a href={cvMailto}>Send your CV</a>
             </Button>
           </motion.div>
 
@@ -73,7 +100,7 @@ export function Careers() {
                     </p>
                   </div>
                   <a
-                    href="#contact"
+                    href={buildApplyMailto(role.title)}
                     className="inline-flex items-center gap-1 text-[0.82rem] font-bold text-ruhe-navy hover:text-ruhe-gold flex-shrink-0"
                   >
                     Apply

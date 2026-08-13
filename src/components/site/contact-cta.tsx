@@ -51,32 +51,43 @@ export function ContactCta() {
     e.preventDefault();
     setSubmitting(true);
     const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = Object.fromEntries(formData.entries()) as Record<
+      string,
+      string
+    >;
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Network response was not ok");
-      setSubmitted(true);
-      toast({
-        title: "Request received",
-        description:
-          "A RUHE consultant will reach out to you within one business day.",
-      });
-      (e.target as HTMLFormElement).reset();
-    } catch (err) {
-      toast({
-        title: "Something went wrong",
-        description:
-          "Please email us directly at georgianeo@ruheglobalresources.com.",
-        variant: "destructive",
-      });
-    } finally {
-      setSubmitting(false);
-    }
+    // Build a mailto link addressed to the HR / admissions mailbox.
+    // The user's email client opens with the prefilled subject + body.
+    const subject = `Call back request — ${payload.service || "General enquiry"}`;
+    const bodyLines = [
+      `Name:    ${payload.name || ""}`,
+      `Email:   ${payload.email || ""}`,
+      `Phone:   ${payload.phone || ""}`,
+      `Service: ${payload.service || ""}`,
+      ``,
+      `Message:`,
+      payload.message || "",
+      ``,
+      `— Sent from ruhe-global-resources.vercel.app`,
+    ];
+    const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    // Small delay so the spinner is visible before the mail client takes over
+    await new Promise((r) => setTimeout(r, 350));
+
+    window.location.href = mailtoUrl;
+
+    setSubmitted(true);
+    setSubmitting(false);
+    toast({
+      title: "Opening your email app",
+      description:
+        "We've prefilled an email to our HR team — just hit send in your mail client.",
+    });
+
+    (e.target as HTMLFormElement).reset();
   }
 
   return (
@@ -155,18 +166,19 @@ export function ContactCta() {
                   <CheckCircle2 className="h-7 w-7 text-ruhe-gold" />
                 </div>
                 <h3 className="font-display text-[1.5rem] font-bold text-ruhe-navy mb-2">
-                  Thank you — we&apos;ve got it
+                  Your email is on its way
                 </h3>
                 <p className="text-ruhe-slate text-[0.95rem] mb-6">
-                  Your request has been logged. A RUHE consultant will reach
-                  out to you within one business day.
+                  We&apos;ve opened your email client with a prefilled message to
+                  our HR team. Hit send and a RUHE consultant will reach out
+                  within one business day.
                 </p>
                 <Button
                   variant="outline"
                   className="border-ruhe-navy text-ruhe-navy hover:bg-ruhe-navy hover:text-white rounded-sm"
                   onClick={() => setSubmitted(false)}
                 >
-                  Submit another request
+                  Send another request
                 </Button>
               </div>
             ) : (

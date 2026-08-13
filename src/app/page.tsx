@@ -10,6 +10,7 @@ import { Blog } from "@/components/site/blog";
 import { Careers } from "@/components/site/careers";
 import { ContactCta } from "@/components/site/contact-cta";
 import { SiteFooter } from "@/components/site/site-footer";
+import { WhatsAppButton } from "@/components/site/whatsapp-button";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <ContactCta />
       </main>
       <SiteFooter />
+      <WhatsAppButton />
     </div>
   );
 }

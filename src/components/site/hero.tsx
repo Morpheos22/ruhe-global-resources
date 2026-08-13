@@ -94,21 +94,21 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="hidden lg:flex flex-col items-end justify-center gap-6"
+          className="flex justify-center lg:justify-end mt-8 lg:mt-0"
         >
           {/* Official horizontal logo on a dark card */}
           <div className="relative">
             <div className="absolute -inset-6 bg-ruhe-gold/20 blur-3xl rounded-full" />
-            <div className="relative bg-ruhe-navy-deep/70 backdrop-blur-md ring-1 ring-ruhe-gold/30 rounded-2xl p-8 shadow-2xl">
+            <div className="relative bg-ruhe-navy-deep/70 backdrop-blur-md ring-1 ring-ruhe-gold/30 rounded-2xl p-6 sm:p-8 shadow-2xl max-w-[420px]">
               <Image
                 src="/logo/ruhe-header.png"
                 alt="RUHE Global Resources — official logo"
                 width={440}
                 height={110}
-                className="w-[360px] h-auto object-contain"
+                className="w-[260px] sm:w-[340px] lg:w-[360px] h-auto object-contain mx-auto"
                 priority
               />
-              <div className="mt-4 text-center text-ruhe-gold-light text-[0.84rem] tracking-[0.18em] uppercase font-semibold">
+              <div className="mt-4 text-center text-ruhe-gold-light text-[0.78rem] sm:text-[0.84rem] tracking-[0.18em] uppercase font-semibold">
                 Your Future. Our Priority.
               </div>
             </div>
