@@ -16,6 +16,11 @@ const ALLOWED_REFERERS = [
 export default function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  // Add a custom header to every response so we can verify the proxy is
+  // actually running on Vercel production.
+  const res = NextResponse.next();
+  res.headers.set("X-RUHE-Proxy", "active");
+
   // Hotlink protection on the /_next/image optimizer endpoint.
   // All <Image> components route through here, so this is the chokepoint
   // for serving images. Blocking foreign referers here effectively
@@ -34,15 +39,14 @@ export default function proxy(req: NextRequest) {
       return new NextResponse("Forbidden", { status: 403 });
     }
 
-    const next = NextResponse.next();
-    next.headers.set(
+    res.headers.set(
       "Cache-Control",
       "private, no-store, must-revalidate",
     );
-    return next;
+    return res;
   }
 
-  return NextResponse.next();
+  return res;
 }
 
 export const config = {
