@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -110,6 +111,21 @@ export function ContactCta() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
+            {/* Official RUHE logo on a dark glass card */}
+            <div className="bg-ruhe-navy-deep/80 backdrop-blur-md ring-1 ring-ruhe-gold/30 rounded-xl p-5 mb-7 max-w-[340px]">
+              <Image
+                src="/logo/ruhe-header.png"
+                alt="RUHE Global Resources — official logo"
+                width={300}
+                height={75}
+                className="w-full h-auto object-contain"
+                priority
+              />
+              <div className="text-center text-ruhe-gold-light text-[0.74rem] tracking-[0.18em] uppercase font-semibold mt-3 pt-3 border-t border-white/10">
+                Your Future. Our Priority.
+              </div>
+            </div>
+
             <span className="eyebrow mb-3">Request a call back</span>
             <h2 className="font-display text-[2rem] md:text-[2.4rem] font-bold mb-4 leading-tight">
               Let&apos;s plan your move abroad

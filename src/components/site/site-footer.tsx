@@ -9,7 +9,7 @@ const footerColumns = [
     links: [
       { label: "About us", href: "#about" },
       { label: "Why choose us", href: "#why-us" },
-      { label: "Careers", href: "#careers" },
+      { label: "Careers", href: "/careers" },
       { label: "Blog", href: "#blog" },
       { label: "Contact", href: "#contact" },
     ],
@@ -48,14 +48,20 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1180px] px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.2fr] mb-12">
           {/* Brand */}
-          <div className="max-w-[320px]">
-            <Image
-              src="/logo/ruhe-logo.png"
-              alt="RUHE Global Resources"
-              width={280}
-              height={150}
-              className="rounded-md mb-4 w-full max-w-[260px] h-auto"
-            />
+          <div className="max-w-[340px]">
+            <div className="bg-ruhe-navy ring-1 ring-ruhe-gold/30 rounded-lg p-5 mb-5">
+              <Image
+                src="/logo/ruhe-header.png"
+                alt="RUHE Global Resources — official logo"
+                width={300}
+                height={75}
+                className="w-full h-auto object-contain"
+                priority
+              />
+              <div className="text-center text-ruhe-gold-light text-[0.72rem] tracking-[0.18em] uppercase font-semibold mt-3 pt-3 border-t border-white/10">
+                Your Future. Our Priority.
+              </div>
+            </div>
             <p className="text-[0.88rem] leading-relaxed">
               Your one-stop shop for admissions, exams, funding and visas —
               helping you study, work and migrate abroad with confidence.
