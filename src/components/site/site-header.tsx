@@ -92,9 +92,9 @@ export function SiteHeader() {
             <Image
               src="/logo/ruhe-header.png"
               alt="RUHE Global Resources"
-              width={200}
-              height={48}
-              className="h-9 w-auto object-contain"
+              width={240}
+              height={60}
+              className="h-11 w-auto object-contain"
               priority
             />
           </Link>
@@ -171,9 +171,9 @@ export function SiteHeader() {
                   <Image
                     src="/logo/ruhe-header.png"
                     alt="RUHE Global Resources"
-                    width={180}
-                    height={40}
-                    className="h-8 w-auto object-contain"
+                    width={220}
+                    height={55}
+                    className="h-11 w-auto object-contain"
                   />
                 </SheetTitle>
               </SheetHeader>

@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Quote } from "lucide-react";
+import { Quote, Sparkles } from "lucide-react";
 
 export function About() {
   return (
     <section id="about" className="py-24 bg-grain relative overflow-hidden">
       <div className="mx-auto max-w-[1180px] px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* Media */}
+          {/* Media — Mr Joseph featured prominently */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -18,32 +18,28 @@ export function About() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative rounded-md overflow-hidden shadow-[0_18px_50px_rgba(11,31,58,0.18)]">
-              <Image
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
-                alt="Graduating student celebrating with peers"
-                width={1200}
-                height={900}
-                className="w-full h-[480px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ruhe-navy-deep/40 to-transparent" />
-            </div>
-
-            {/* CEO card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-md shadow-xl p-5 flex items-center gap-4 max-w-[280px]">
+            <div className="relative rounded-md overflow-hidden shadow-[0_18px_50px_rgba(11,31,58,0.18)] bg-gradient-to-br from-ruhe-navy to-ruhe-navy-deep">
               <Image
                 src="/team/mr-joseph.jpg"
                 alt="Mr Joseph, Founder & CEO of RUHE Global Resources"
-                width={56}
-                height={56}
-                className="h-14 w-14 rounded-full object-cover ring-2 ring-ruhe-gold/40"
+                width={1200}
+                height={1350}
+                className="w-full h-[560px] object-cover object-top"
+                priority
               />
-              <div>
-                <div className="font-display font-bold text-ruhe-navy text-[0.95rem]">
+              <div className="absolute inset-0 bg-gradient-to-t from-ruhe-navy-deep/85 via-ruhe-navy-deep/20 to-transparent" />
+
+              {/* Name + title overlaid on the photo */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="inline-flex items-center gap-2 mb-2 rounded-full bg-ruhe-gold/95 px-3 py-1 text-[0.7rem] uppercase tracking-[0.14em] font-bold text-ruhe-navy-deep">
+                  <Sparkles className="h-3 w-3" />
+                  Founder &amp; CEO
+                </div>
+                <div className="font-display text-2xl md:text-3xl font-bold text-white leading-tight">
                   Mr Joseph
                 </div>
-                <div className="text-[0.78rem] text-ruhe-slate">
-                  Founder &amp; CEO, RUHE Global Resources
+                <div className="text-ruhe-gold-light text-[0.92rem] mt-0.5">
+                  RUHE Global Resources
                 </div>
               </div>
             </div>

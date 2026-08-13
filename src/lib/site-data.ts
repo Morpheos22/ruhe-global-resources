@@ -212,7 +212,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Tuition, living costs and scholarship options compared — a practical shortlist for Nigerian applicants who want a UK degree without breaking the bank.",
     image: "/blog/uk-universities.png",
-    href: "#blog",
+    href: "https://ruhegr.com/top-5-cheapest-universities-in-uk-for-africans/",
   },
   {
     date: "09 May 2025",
@@ -222,7 +222,7 @@ export const blogPosts: BlogPost[] = [
       "Visa approval rates, post-study work options and cost of living — the eight destinations we currently recommend most to Nigerian applicants.",
     image:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
-    href: "#blog",
+    href: "https://ruhegr.com/update-top-8-easiest-countries-for-nigerians-to-study/",
   },
   {
     date: "12 Apr 2025",
@@ -232,7 +232,7 @@ export const blogPosts: BlogPost[] = [
       "The five questions visa officers love to ask, how to frame your study plan, and the documents that make the difference between approval and refusal.",
     image:
       "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
-    href: "#blog",
+    href: "https://ruhegr.com/blog/",
   },
 ];
 

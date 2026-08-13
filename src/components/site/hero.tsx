@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight, ChevronRight } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -63,12 +63,11 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="rounded-sm border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold tracking-wide"
+              className="rounded-sm bg-transparent border border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 font-semibold tracking-wide group"
             >
               <a href="#services">
                 Explore Services
-                <ChevronRight className="h-4 w-4 ml-1.5" />
+                <ArrowRight className="h-4 w-4 ml-1.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </Button>
           </div>
@@ -90,23 +89,29 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right: brand emblem */}
+        {/* Right: official RUHE logo + emblem */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="hidden lg:flex justify-end"
+          className="hidden lg:flex flex-col items-end justify-center gap-6"
         >
+          {/* Official horizontal logo on a dark card */}
           <div className="relative">
-            <div className="absolute -inset-8 bg-ruhe-gold/20 blur-3xl rounded-full" />
-            <Image
-              src="/logo/ruhe-logo.png"
-              alt="RUHE Global Resources — Your Future. Our Priority."
-              width={420}
-              height={420}
-              className="relative rounded-2xl shadow-2xl ring-1 ring-white/10"
-              priority
-            />
+            <div className="absolute -inset-6 bg-ruhe-gold/20 blur-3xl rounded-full" />
+            <div className="relative bg-ruhe-navy-deep/70 backdrop-blur-md ring-1 ring-ruhe-gold/30 rounded-2xl p-8 shadow-2xl">
+              <Image
+                src="/logo/ruhe-header.png"
+                alt="RUHE Global Resources — official logo"
+                width={440}
+                height={110}
+                className="w-[360px] h-auto object-contain"
+                priority
+              />
+              <div className="mt-4 text-center text-ruhe-gold-light text-[0.84rem] tracking-[0.18em] uppercase font-semibold">
+                Your Future. Our Priority.
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

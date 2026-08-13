@@ -46,6 +46,8 @@ export function Blog() {
             <motion.a
               key={post.title}
               href={post.href}
+              target={post.href.startsWith("http") ? "_blank" : undefined}
+              rel={post.href.startsWith("http") ? "noopener noreferrer" : undefined}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}

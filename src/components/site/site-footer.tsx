@@ -36,10 +36,10 @@ const footerColumns = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter / X" },
+  { icon: Twitter, href: "https://x.com/RuheGlobal", label: "Twitter / X" },
+  { icon: Facebook, href: "https://web.facebook.com/RuheGlobalResources", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/ruhe-global-resources/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/ruheglobalresources/", label: "Instagram" },
 ];
 
 export function SiteFooter() {
@@ -70,6 +70,8 @@ export function SiteFooter() {
                   <a
                     key={s.label}
                     href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={s.label}
                     className="h-9 w-9 rounded-full bg-white/8 hover:bg-ruhe-gold hover:text-ruhe-navy-deep flex items-center justify-center transition-colors"
                   >

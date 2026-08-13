@@ -79,7 +79,9 @@ export function Services() {
                       ))}
                     </ul>
                     <a
-                      href="#contact"
+                      href="https://ruhegr.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-[0.84rem] font-bold text-ruhe-navy hover:text-ruhe-gold transition-colors group/link"
                     >
                       Learn more
