@@ -22,14 +22,13 @@ export default function proxy(req: NextRequest) {
   res.headers.set("X-RUHE-Proxy", "active");
 
   // Hotlink protection on the /_next/image optimizer endpoint.
-  // All <Image> components route through here, so this is the chokepoint
-  // for serving images. Blocking foreign referers here effectively
-  // prevents other sites from hot-linking our images.
-  //
-  // Direct file access to /logo/... /team/... /blog/... is handled by
-  // the headers() in next.config.ts (Cache-Control: private + noindex).
   if (pathname.startsWith("/_next/image")) {
     const referer = req.headers.get("referer") || "";
+    // Debug: expose what referer the proxy sees
+    res.headers.set("X-RUHE-Referer", referer.slice(0, 80));
+    res.headers.set("X-RUHE-Host", req.headers.get("host") || "");
+    res.headers.set("X-RUHE-Method", req.method);
+
     const isAllowedReferer = ALLOWED_REFERERS.some(
       (allowed) =>
         referer === allowed || referer.startsWith(allowed + "/"),
