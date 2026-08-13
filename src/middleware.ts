@@ -29,7 +29,7 @@ export function middleware(req: NextRequest) {
         referer === allowed || referer.startsWith(allowed + "/"),
     );
 
-    if (!isAllowedReferer && process.env.NODE_ENV === "production") {
+    if (!isAllowedReferer) {
       return new NextResponse("Forbidden", { status: 403 });
     }
 
