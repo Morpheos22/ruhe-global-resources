@@ -50,5 +50,5 @@ export default function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/_next/image"],
+  matcher: ["/((?!_next/static|_next/webpack-hmr|favicon.ico).*)"],
 };
